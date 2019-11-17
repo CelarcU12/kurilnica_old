@@ -6,6 +6,10 @@ import db
 
 from checkRelayStatus import checkStatus
 
+import logging
+logging.basicConfig(filename='log/nadzirajRelayApi.log', format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p')
+
+
 url= "http://192.168.0.121:5000"
 urlOn=url+"/relay/on"
 urlOff=url+"/relay/off"
@@ -13,41 +17,41 @@ def nadziraj():
     if (checkTemp() and not checkStatus()):
         try:
             response = requests.get(urlOn)
-            print("VKLOP")
+            logging.info("VKLOP")
             db.saveRelayStatus("PEČ","ON",getT1(), getT2())
         except:
             raise Exception("Napaka v nadziraj -> relay.on()")
     elif (not checkTemp() and checkStatus()):
         try:
             response = requests.get(urlOff)
-            print("IZKLOP")
+            logging.info("IZKLOP")
             db.saveRelayStatus("PEČ","OFF",getT1(), getT2())
         except:
             raise Exception("Napa ka v nadziraj -> relay.off()")
     else:
-        print("Ni sprememb!")
+        logging.info("Ni sprememb!")
 
 def checkTemp():
-    print("Check temp   peč:"+ str(getT1())+"   zalogovnik: "+ str(getT2()))
+    logging.info("Check temp   peč:"+ str(getT1())+"   zalogovnik: "+ str(getT2()))
     try:
 
         if (getT1() > getT2()):
-            print( "T1 > T2")
+            logging.info( "T1 > T2")
             return True
         else:
-            print("T1 < T2")
+            logging.info("T1 < T2")
             return False
     except:
-        print("exception checkTemp()")
+        logging.info("exception checkTemp()")
         return False
 
      
 
 while True:
     if checkStatus():
-        print("Status ON")
+        logging.info("Status ON")
     else:
-        print("Status OFF")
+        logging.info("Status OFF")
     nadziraj()
     time.sleep(3)
 

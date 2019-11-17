@@ -1,6 +1,10 @@
 import mysql.connector
 import datetime
 
+import logging
+logging.basicConfig(filename='log/db.log', format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p')
+
+
 mydb = mysql.connector.connect(
   host="localhost",
   user="pi",
@@ -20,7 +24,7 @@ def saveTempToDB(name, val):
     val = (name, val, dev_id)
     mycursor.execute(sql, val)
     mydb.commit()
-    print("INSERT:  "+ str(name)+ " ; "+ str(val) + " ; ")
+    logging.info("INSERT:  "+ str(name)+ " ; "+ str(val) + " ; ")
 
 def saveRelayStatus(name, val,t1,t2):
     mycursor = mydb.cursor()
@@ -35,7 +39,7 @@ def saveRelayStatus(name, val,t1,t2):
     val = (1,name,t1,t2,val,val_num)
     mycursor.execute(sql, val)
     mydb.commit()
-    print("INSERT:  "+ str(name)+ " ; "+ str(val) + " ; ")
+    logging.info("INSERT:  "+ str(name)+ " ; "+ str(val) + " ; ")
 
 
 def getData(tablename, name, from_, to):
