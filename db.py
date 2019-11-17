@@ -2,7 +2,7 @@ import mysql.connector
 import datetime
 
 import logging
-logging.basicConfig(filename='~/Documents/project/log/db.log', format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p')
+logging.basicConfig(filename='Documents/project/log/db.log', format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p')
 
 
 mydb = mysql.connector.connect(
