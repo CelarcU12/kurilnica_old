@@ -7,7 +7,7 @@ import db
 from checkRelayStatus import checkStatus
 
 import logging
-logging.basicConfig(filename='Documents/project/log/nadzirajRelayApi.log', format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p', level = logging.DEBUG)
+logging.basicConfig(filename='log/nadzirajRelayApi.log', format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p', level = logging.DEBUG)
 
 
 url= "http://192.168.0.121:5000"
