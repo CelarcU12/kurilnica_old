@@ -17,7 +17,7 @@ from t1 import getT1,getT2
 from relay import getStatus, on, off
 
 import logging
-logging.basicConfig(filename='log/api.log', format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p', level=logging.DEBUG)
+#logging.basicConfig(filename='log/api.log', format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p', level=logging.DEBUG)
 
 app = Flask(__name__)
 
