@@ -17,7 +17,7 @@ from t1 import getT1,getT2
 from relay import getStatus, on, off
 
 import logging
-logging.basicConfig(filename='Documents/project/log/api.log', format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p')
+logging.basicConfig(filename='Documents/project/log/api.log', format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p', level=logging.DEBUG)
 
 app = Flask(__name__)
 
@@ -163,21 +163,15 @@ def pretekliPodatki3(name):
 @app.route('/relay/<status>', methods=['GET', 'POST'])
 def relayOnOff(status):
     chanel=21
-    if request.method =='POST':
-        if status == 'on':
-            relay.motor_on(chanel)
-            logging.info("ON")
-        else:
-            relay.motor_off(chanel)
-            logging.info("OFF")
+    if status == 'on':
+        on()
+        logging.info(" relay ON")
+        return "Relay ON"
     else:
-        if status == 'on':
-            on()
-            logging.info(" relay ON")
-        else:
-            off()
-            logging.info(" relay OFF")
-    return "OK"
+        off()
+        logging.info(" relay OFF")
+        return "Relay OFF"
+    return "NAPAKA"
 
 
 if __name__=='__main__':
