@@ -174,7 +174,7 @@ def relayOnOff(status):
     return "NAPAKA"
 
 @app.route('/rs/<limit>', methods=['GET'])
-def relayOnOff(limit=10):
+def relayInfo(limit=10):
     logging.info('/rs/'+str(limit))
     sez= db.relaySpremembe(limit)
     logging.info("Podatki releya: "+ str(len(sez)))
