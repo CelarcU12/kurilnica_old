@@ -136,3 +136,19 @@ def dniNazaj(name, dni):
                     "id:": str(el[3])}) 
     return sez
 
+def relaySpremembe(limit):
+    '''On/Off spremembe, ki so se dogajale na releyju'''
+    mycursor = mydb.cursor()
+    sql = "SELECT * from relayStatus limit %s;"
+    val = (limit)
+    mycursor.execute(sql, val)
+    myresult = mycursor.fetchall()
+    sez=[]
+    for el in myresult:
+        sez.append({"id": el[0],
+                    "name": str(el[2]),
+                    "t1:": str(el[3]),
+                    "t2:": str(el[4]),
+                    "status:": str(el[5]),
+                    "time:": str(el[7])}) 
+    return sez
