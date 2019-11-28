@@ -1,6 +1,7 @@
-name: component-b
-title: Component B
+name: kurilnica
+title: Kurilnica
 version: dev
 nav:
-- modules/nav1.adoc
+- modules/ROOT/nav.adoc
+- modules/module-one/nav.adoc
 
