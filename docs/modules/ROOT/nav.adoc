@@ -1,1 +1,1 @@
-* xref:index.adoc[INDEX  test]
+* xref:index.adoc[INDEX2  test]
