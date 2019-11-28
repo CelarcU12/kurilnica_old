@@ -171,6 +171,7 @@ def relayOnOff(status):
         off()
         logging.info(" relay OFF")
         return "Relay OFF"'''
+    logging.info("reley / <status>: "+status)
     return jsonify({'relay':status,
                     'funkica': 'ni več mogoča'})
 
