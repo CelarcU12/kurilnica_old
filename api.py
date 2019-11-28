@@ -14,7 +14,7 @@ from tempClass import Temp
 from relayClass import Relay
 from t1 import getT1,getT2
 
-from relay import getStatus, on, off
+#from relay import getStatus, on, off
 
 import logging
 #logging.basicConfig(filename='log/api.log', format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p', level=logging.DEBUG)
@@ -162,7 +162,7 @@ def pretekliPodatki3(name):
 
 @app.route('/relay/<status>', methods=['GET', 'POST'])
 def relayOnOff(status):
-    chanel=21
+ '''   chanel=21
     if status == 'on':
         on()
         logging.info(" relay ON")
@@ -170,8 +170,8 @@ def relayOnOff(status):
     else:
         off()
         logging.info(" relay OFF")
-        return "Relay OFF"
-    return "NAPAKA"
+        return "Relay OFF"'''
+    return "{ 'relay': 'upravljanje ni več mogoče!'}"
 
 @app.route('/rs/<limit>', methods=['GET'])
 def relayInfo(limit=10):
