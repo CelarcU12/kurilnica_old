@@ -1,0 +1,38 @@
+# KURILNICA API
+
+
+## Termometer 1
+
+**Prvi termometer bo v peči**
+
+'GET /devices/t1'
+
+Trenutna temperetura
+
+**Drugi termometer bo v zalogovniku**
+
+'GET /devices/t2'
+
+Trenutna temperetura v zalogovniku
+
+'GET /i'
+
+Trenutne informacije o napravah
+
+'GET /getMax//'
+
+Maxsimalna vrednost naprave za določen dan
+
+-> yyyy-mm-dd
+
+'GET /getMin//'
+
+Minimalna vrednost naprave za določen dan
+
+-> yyyy-mm-dd
+
+'GET //<from_>/'
+
+Ime naprave, od_kdaj, do_kdaj
+
+primer klica: /T1/2019-01-01/2019-01-02
