@@ -11,5 +11,5 @@ def saveEverySecond():
         db.saveTempToDB("T1", t1)
         db.saveTempToDB("T2", t2)
         time.sleep(60)
-        print("Save success!!")
+        #print("Save success!!")
 saveEverySecond()
