@@ -162,7 +162,7 @@ def pretekliPodatki3(name):
 
 @app.route('/relay/<status>', methods=['GET', 'POST'])
 def relayOnOff(status):
- '''   chanel=21
+    '''   chanel=21
     if status == 'on':
         on()
         logging.info(" relay ON")
@@ -171,7 +171,8 @@ def relayOnOff(status):
         off()
         logging.info(" relay OFF")
         return "Relay OFF"'''
-    return "{ 'relay': 'upravljanje ni več mogoče!'}"
+    return jsonify({'relay':status,
+                    'funkica': 'ni več mogoča'})
 
 @app.route('/rs/<limit>', methods=['GET'])
 def relayInfo(limit=10):
