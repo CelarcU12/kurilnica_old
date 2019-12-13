@@ -9,7 +9,7 @@ from checkRelayStatus import checkStatus
 import logging
 
 
-url= "http://192.168.0.121:5000"
+url= "http://192.168.0.100:5000"
 urlOn=url+"/relay/on"
 urlOff=url+"/relay/off"
 def nadziraj():

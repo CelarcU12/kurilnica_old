@@ -139,7 +139,7 @@ def dniNazaj(name, dni):
 def relaySpremembe(limit):
     '''On/Off spremembe, ki so se dogajale na releyju'''
     mycursor = mydb.cursor()
-    sql = "SELECT id,relay_id, name, t1, t2, status, status_id, time from relayStatus limit %s;"
+    sql = "SELECT id,relay_id, name, t1, t2, status, status_id, time from relayStatus limit %s ;"
     val = limit
     mycursor.execute(sql, val)
     myresult = mycursor.fetchall()
